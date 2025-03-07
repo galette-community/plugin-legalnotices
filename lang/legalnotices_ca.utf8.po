@@ -1,0 +1,383 @@
+# Catalan translations for Galette Legal Notices
+# Copyright © 2003-2025 The Galette Team
+# This file is distributed under the same license as Galette Legal Notices.
+# Guillaume AGNIERAY <dev@agnieray.net>, 2025.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-03-07 15:04+0100\n"
+"PO-Revision-Date: 2025-03-07 15:11+0100\n"
+"Last-Translator: Guillaume AGNIERAY <dev@agnieray.net>\n"
+"Language-Team: \n"
+"Language: ca\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.2.2\n"
+
+#: ../lib/GaletteLegalNotices/Controllers/MainController.php:77
+#: ../lib/GaletteLegalNotices/PluginGaletteLegalnotices.php:67
+msgid "Pages content"
+msgstr ""
+
+#: ../lib/GaletteLegalNotices/Controllers/MainController.php:146
+#, php-format
+msgid "The \"%s\" page has not been modified!"
+msgstr ""
+
+#: ../lib/GaletteLegalNotices/Controllers/MainController.php:155
+#, php-format
+msgid "The \"%s\" page has been successfully modified."
+msgstr ""
+
+#: ../lib/GaletteLegalNotices/Controllers/MainController.php:264
+msgid "Legal Notices settings"
+msgstr ""
+
+#: ../lib/GaletteLegalNotices/Controllers/MainController.php:304
+msgid "Legal Notices settings have been saved."
+msgstr ""
+
+#: ../lib/GaletteLegalNotices/Controllers/MainController.php:307
+msgid ""
+"An SQL error has occurred while storing Legal Notices settings. Please try "
+"again, and contact the administrator if the problem persists."
+msgstr ""
+
+#: ../lib/GaletteLegalNotices/Entity/Pages.php:452
+#: ../lib/GaletteLegalNotices/PluginGaletteLegalnotices.php:100
+#: ../tempcache/scripts.html.twig:88
+msgid "Legal Information"
+msgstr ""
+
+#: ../lib/GaletteLegalNotices/Entity/Pages.php:460
+#: ../lib/GaletteLegalNotices/PluginGaletteLegalnotices.php:110
+#: ../tempcache/scripts.html.twig:76
+msgid "Terms of Service"
+msgstr ""
+
+#: ../lib/GaletteLegalNotices/Entity/Pages.php:468
+#: ../lib/GaletteLegalNotices/PluginGaletteLegalnotices.php:120
+#: ../tempcache/scripts.html.twig:64
+msgid "Privacy Policy"
+msgstr ""
+
+#: ../lib/GaletteLegalNotices/PluginGaletteLegalnotices.php:76
+#: ../lib/GaletteLegalNotices/PluginGaletteLegalnotices.php:133
+msgid "Legal Notices"
+msgstr ""
+
+#: ../tempcache/legalnotices_page.html.twig:68
+msgid "Edit this page"
+msgstr ""
+
+#: ../tempcache/legalnotices_page.html.twig:84
+msgid "Last update"
+msgstr ""
+
+#: ../tempcache/legalnotices_page.html.twig:96
+msgid "This page has not been translated in your language"
+msgstr ""
+
+#: ../tempcache/legalnotices_pages.html.twig:65
+msgid "Choose a page"
+msgstr ""
+
+#: ../tempcache/legalnotices_pages.html.twig:77
+msgid "Language"
+msgstr ""
+
+#: ../tempcache/legalnotices_pages.html.twig:117
+msgid "Page"
+msgstr ""
+
+#: ../tempcache/legalnotices_pages.html.twig:185
+msgid "Page body"
+msgstr ""
+
+#: ../tempcache/legalnotices_pages.html.twig:191
+msgid "Or"
+msgstr ""
+
+#: ../tempcache/legalnotices_pages.html.twig:197
+msgid "External URL"
+msgstr ""
+
+#: ../tempcache/legalnotices_pages.html.twig:197
+msgid ""
+"Enter the URL that the user will be redirected to instead of displaying the "
+"content defined in the previous field. Setting this option disables editing "
+"of the page body."
+msgstr ""
+
+#: ../tempcache/legalnotices_settings.html.twig:69
+msgid "Pages"
+msgstr ""
+
+#: ../tempcache/legalnotices_settings.html.twig:75
+msgid "Enable the \"Legal Information\" page"
+msgstr ""
+
+#: ../tempcache/legalnotices_settings.html.twig:79
+msgid "Enable the \"Terms of Service\" page"
+msgstr ""
+
+#: ../tempcache/legalnotices_settings.html.twig:83
+msgid "Enable the \"Privacy Policy\" page"
+msgstr ""
+
+#: ../tempcache/legalnotices_settings.html.twig:90
+msgid "Move links in the \"Public pages\" menu"
+msgstr ""
+
+#: ../tempcache/legalnotices_settings.html.twig:90
+msgid ""
+"Links are added by default in the footer. Enable this option if you want to "
+"move them in the \"Public pages\" menu."
+msgstr ""
+
+#: ../tempcache/legalnotices_settings.html.twig:98
+msgid "Fallback language for untranslated pages"
+msgstr ""
+
+#: ../tempcache/legalnotices_settings.html.twig:135
+msgid "Consent Manager Platform"
+msgstr ""
+
+#: ../tempcache/legalnotices_settings.html.twig:141
+msgid "Enable the consent manager"
+msgstr ""
+
+#: ../tempcache/legalnotices_settings.html.twig:141
+msgid ""
+"If you enable this option, you must define which services should be included "
+"in the consent manager. Read the plugin documentation to learn how to do "
+"this."
+msgstr ""
+
+#: ../tempcache/legalnotices_settings.html.twig:145
+msgid "Hide the \"Accept all\" button"
+msgstr ""
+
+#: ../tempcache/legalnotices_settings.html.twig:145
+#: ../tempcache/legalnotices_settings.html.twig:149
+msgid ""
+"Do not enable this option if you need to comply with the european "
+"legislation (GDPR & ePrivacy)."
+msgstr ""
+
+#: ../tempcache/legalnotices_settings.html.twig:149
+msgid "Hide the \"I decline\" button"
+msgstr ""
+
+#: ../tempcache/legalnotices_settings.html.twig:153
+msgid "Cookie lifetime"
+msgstr ""
+
+#: ../tempcache/legalnotices_settings.html.twig:153
+msgid ""
+"Specify the maximum lifetime of the cookie used to store consent information "
+"in the browser (in days). After this period, the user's consent will be "
+"requested again."
+msgstr ""
+
+#: ../tempcache/legalnotices_settings.html.twig:157
+msgid "Cookie domain"
+msgstr ""
+
+#: ../tempcache/legalnotices_settings.html.twig:157
+msgid ""
+"Use this if you want to get consent once for multiple matching domains. By "
+"default, the current domain is used."
+msgstr ""
+
+#: ../tempcache/legalnotices_settings.html.twig:161
+msgid "Enable \"localStorage\""
+msgstr ""
+
+#: ../tempcache/legalnotices_settings.html.twig:161
+msgid ""
+"By default, consent information is stored in the browser with a cookie. "
+"Enable this option if you want to use \"locaStorage\" instead. If enabled, "
+"setting the options above related to the cookie becomes irrelevant."
+msgstr ""
+
+#: ../tempcache/scripts.html.twig:145
+msgid "Services we would like to use"
+msgstr ""
+
+#: ../tempcache/scripts.html.twig:149
+msgid ""
+"Here you can assess and customize the services that we'd like to use on this "
+"website. You're in charge! Enable or disable services as you see fit."
+msgstr ""
+
+#: ../tempcache/scripts.html.twig:155
+msgid "Testing mode!"
+msgstr ""
+
+#: ../tempcache/scripts.html.twig:159
+msgid "There were changes since your last visit, please renew your consent."
+msgstr ""
+
+#: ../tempcache/scripts.html.twig:163
+msgid ""
+"Hi! Could we please enable some additional services for {purposes}? You can "
+"always change or withdraw your consent later."
+msgstr ""
+
+#: ../tempcache/scripts.html.twig:167
+msgid "Let me choose"
+msgstr ""
+
+#: ../tempcache/scripts.html.twig:174
+msgid "Service Provision"
+msgstr ""
+
+#: ../tempcache/scripts.html.twig:178
+msgid ""
+"These services are essential for the correct functioning of this website. "
+"You cannot disable them here as the service would not work correctly "
+"otherwise."
+msgstr ""
+
+#: ../tempcache/scripts.html.twig:184
+msgid "Performance Optimization"
+msgstr ""
+
+#: ../tempcache/scripts.html.twig:188
+msgid ""
+"These services process personal information to optimize the service that "
+"this website offers."
+msgstr ""
+
+#: ../tempcache/scripts.html.twig:194
+msgid "Analytics"
+msgstr ""
+
+#: ../tempcache/scripts.html.twig:198
+msgid ""
+"These services process personal information to let us know how you use this "
+"website."
+msgstr ""
+
+#: ../tempcache/scripts.html.twig:204
+msgid "Marketing"
+msgstr ""
+
+#: ../tempcache/scripts.html.twig:208
+msgid ""
+"These services process personal information to show you relevant content "
+"about products, services or topics that you might be interested in."
+msgstr ""
+
+#: ../tempcache/scripts.html.twig:214
+msgid "Advertising"
+msgstr ""
+
+#: ../tempcache/scripts.html.twig:218
+msgid ""
+"These services process personal information to show you personalized or "
+"interest-based advertisements."
+msgstr ""
+
+#: ../tempcache/scripts.html.twig:225
+msgid "service"
+msgstr ""
+
+#: ../tempcache/scripts.html.twig:229
+msgid "services"
+msgstr ""
+
+#: ../tempcache/scripts.html.twig:234
+msgid "That's ok"
+msgstr ""
+
+#: ../tempcache/scripts.html.twig:238
+msgid "Save"
+msgstr ""
+
+#: ../tempcache/scripts.html.twig:242
+msgid "I decline"
+msgstr ""
+
+#: ../tempcache/scripts.html.twig:246
+msgid "Close"
+msgstr ""
+
+#: ../tempcache/scripts.html.twig:250
+msgid "Accept all"
+msgstr ""
+
+#: ../tempcache/scripts.html.twig:254
+msgid "Accept selected"
+msgstr ""
+
+#: ../tempcache/scripts.html.twig:263
+msgid "privacy policy"
+msgstr ""
+
+#: ../tempcache/scripts.html.twig:267
+msgid "To learn more, please read our {privacyPolicy}."
+msgstr ""
+
+#: ../tempcache/scripts.html.twig:274
+msgid "Enable or disable all services"
+msgstr ""
+
+#: ../tempcache/scripts.html.twig:278
+msgid "Use this switch to enable or disable all services."
+msgstr ""
+
+#: ../tempcache/scripts.html.twig:284
+msgid "(opt-out)"
+msgstr ""
+
+#: ../tempcache/scripts.html.twig:288
+msgid "This service is loaded by default (but you can opt out)"
+msgstr ""
+
+#: ../tempcache/scripts.html.twig:294
+msgid "(always required)"
+msgstr ""
+
+#: ../tempcache/scripts.html.twig:298
+msgid "This services is always required"
+msgstr ""
+
+#: ../tempcache/scripts.html.twig:303
+msgid "purposes:"
+msgstr ""
+
+#: ../tempcache/scripts.html.twig:307
+msgid "purpose:"
+msgstr ""
+
+#: ../tempcache/scripts.html.twig:312
+msgid "Realized with Klaro!"
+msgstr ""
+
+#: ../tempcache/scripts.html.twig:317
+msgid "Do you want to load external content supplied by {title}?"
+msgstr ""
+
+#: ../tempcache/scripts.html.twig:321
+msgid "Yes"
+msgstr ""
+
+#: ../tempcache/scripts.html.twig:325
+msgid "Always"
+msgstr ""
+
+#: ../tempcache/scripts.html.twig:340
+msgid ""
+"The cookies used by Galette do not store your personal data and do not track "
+"you."
+msgstr ""
+
+#: ../tempcache/scripts.html.twig:349
+msgid "Consent Manager"
+msgstr ""

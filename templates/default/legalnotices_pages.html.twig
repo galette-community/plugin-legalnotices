@@ -1,0 +1,107 @@
+{#
+/**
+ * Copyright © 2003-2025 The Galette Team
+ *
+ * This file is part of Galette (https://galette.eu).
+ *
+ * Galette is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * Galette is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with Galette. If not, see <http://www.gnu.org/licenses/>.
+ */
+#}
+
+{% extends 'page.html.twig' %}
+
+{% block content %}
+    {% if login.isAdmin() or login.isStaff() %}
+        <div class="ui top attached accordion-styled header">
+            {{ _T("Choose a page", "legalnotices") }}
+        </div>
+        <div class="ui bottom attached accordion-styled segment">
+            <form action="{{ url_for('legalnotices_page_change') }}" method="post" enctype="multipart/form-data" class="ui form">
+                <div class="fields">
+                    <div class="inline field">
+                        <label for="sel_lang">{{ _T("Language", "legalnotices") }} :</label>
+                        <div class="ui dropdown selection autosubmit">
+                            <input type="hidden" name="sel_lang" value="{{ cur_lang }}">
+                            <i class="dropdown icon"></i>
+                            <div class="text">{{ cur_lang_name }}</div>
+                            <div class="menu">
+                            {% for lang in langlist %}
+                                <div class="item{% if cur_lang == lang.getID() %} active selected {% endif %}" data-value="{{ lang.getID() }}">{{ lang.getName() }}</div>
+                            {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="inline field">
+                        <label for="sel_page">{{ _T("Page", "legalnotices") }} :</label>
+                        <div class="ui dropdown selection autosubmit">
+                            <input type="hidden" name="sel_page" value="{{ cur_name }}">
+                            <i class="dropdown icon"></i>
+                            <div class="text">{% for page in pageslist %}{% if cur_name == page.name %}{{ page.label }}{% endif %}{% endfor %}</div>
+                            <div class="menu">
+                            {% for page in pageslist %}
+                                <div class="item{% if cur_name == page.name %} active selected {% endif %}" data-value="{{ page.name }}">{{ page.label }}</div>
+                            {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                    {% include "components/forms/csrf.html.twig" %}
+                </div>
+            </form>
+        </div>
+
+        <form action="{{ url_for('legalnotices_page_edit') }}" method="post" enctype="multipart/form-data" class="ui form">
+            <div class="ui top attached accordion-styled header">
+                {{ page.label }}
+            </div>
+            <div class="ui bottom attached accordion-styled segment">
+                {% include "components/forms/textarea.html.twig" with {
+                    id: 'page_body',
+                    value: page.body,
+                    label: _T("Page body", "legalnotices"),
+                    component_class: page.url != '' ? 'disabled field' : 'field'
+                } %}
+                <div class="ui horizontal divider">
+                    {{ _T("Or", "legalnotices") }}
+                </div>
+                {% include "components/forms/text.html.twig" with {
+                    id: 'external_url',
+                    value: page.url,
+                    label: _T("External URL", "legalnotices"),
+                    type: 'text',
+                    tip: _T("Enter the URL that the user will be redirected to instead of displaying the content defined in the previous field. Setting this option disables editing of the page body.", "legalnotices")
+                } %}
+            </div>
+
+            <div class="ui basic center aligned segment">
+                <button type="submit" class="ui labeled icon primary button action">
+                    <i class="save icon"></i> {{ _T("Save") }}
+                </button>
+                <input type="hidden" name="cur_name" value="{{ cur_name }}"/>
+                <input type="hidden" name="cur_lang" value="{{ cur_lang }}"/>
+                {% include "components/forms/csrf.html.twig" %}
+            </div>
+        </form>
+    {% endif %}
+{% endblock %}
+
+{% block javascripts %}
+    <script>
+        $(function() {
+            activateHtmlEditor($('#page_body'), false, ['p', 'h2', 'h3', 'h4', 'h5', 'h6'], ['link']);
+            {% if page.url != '' %}
+                $('#page_body').summernote('disable');
+            {% endif %}
+        });
+    </script>
+{% endblock %}

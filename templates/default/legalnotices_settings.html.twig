@@ -1,0 +1,128 @@
+{#
+/**
+ * Copyright © 2003-2025 The Galette Team
+ *
+ * This file is part of Galette (https://galette.eu).
+ *
+ * Galette is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * Galette is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with Galette. If not, see <http://www.gnu.org/licenses/>.
+ */
+#}
+
+{% extends 'page.html.twig' %}
+
+{% block content %}
+    {% if login.isAdmin() %}
+        <form action="{{ url_for("legalnotices_store_settings") }}" method="post" enctype="multipart/form-data" class="ui form">
+            <div class="ui segment">
+                <h2 class="ui horizontal left aligned divider tiny header">
+                    <i class="file alternate outline icon"></i>
+                    {{ _T("Pages", "legalnotices") }}
+                </h2>
+                {% include "components/forms/checkbox.html.twig" with {
+                    id: 'enable_legal_information',
+                    value: '1',
+                    checked: settings.enable_legal_information == 1 ? true : false,
+                    label: _T('Enable the "Legal Information" page', "legalnotices")
+                } %}
+                {% include "components/forms/checkbox.html.twig" with {
+                    id: 'enable_terms_of_service',
+                    value: '1',
+                    checked: settings.enable_terms_of_service == 1 ? true : false,
+                    label: _T('Enable the "Terms of Service" page', "legalnotices")
+                } %}
+                {% include "components/forms/checkbox.html.twig" with {
+                    id: 'enable_privacy_policy',
+                    value: '1',
+                    checked: settings.enable_privacy_policy == 1 ? true : false,
+                    label: _T('Enable the "Privacy Policy" page', "legalnotices")
+                } %}
+                {% if preferences.pref_bool_publicpages == 1 %}
+                    {% include "components/forms/checkbox.html.twig" with {
+                        id: 'publicpage_links',
+                        value: '1',
+                        checked: settings.publicpage_links == 1 ? true : false,
+                        label: _T('Move links in the "Public pages" menu', "legalnotices"),
+                        tip: _T('Links are added by default in the footer. Enable this option if you want to move them in the "Public pages" menu.', "legalnotices")
+                    } %}
+                {% endif %}
+                <div class="inline field">
+                    <label for="fallback_language">{{ _T("Fallback language for untranslated pages", "legalnotices") }} :</label>
+                    <div class="ui dropdown selection">
+                        <input type="hidden" name="fallback_language" value="{{ settings.fallback_language }}">
+                        <i class="dropdown icon"></i>
+                        <div class="text">{{ settings.fallback_language }}</div>
+                        <div class="menu">
+                        {% for lang in langlist %}
+                            <div class="item" data-value="{{ lang.getID() }}">{{ lang.getName() }}</div>
+                        {% endfor %}
+                        </div>
+                    </div>
+                </div>
+                <h2 class="ui horizontal left aligned divider tiny header">
+                    <i class="shield alternate icon"></i>
+                    {{ _T("Consent Manager Platform", "legalnotices") }}
+                </h2>
+                {% include "components/forms/checkbox.html.twig" with {
+                    id: 'enable_cmp',
+                    value: '1',
+                    checked: settings.enable_cmp == 1 ? true : false,
+                    label: _T("Enable the consent manager", "legalnotices"),
+                    tip: _T("If you enable this option, you must define which services should be included in the consent manager. Read the plugin documentation to learn how to do this.", "legalnotices")
+                } %}
+                {% include "components/forms/checkbox.html.twig" with {
+                    id: 'hide_accept_all',
+                    value: '1',
+                    checked: settings.hide_accept_all == 1 ? true : false,
+                    label: _T('Hide the "Accept all" button', "legalnotices"),
+                    tip: _T("Do not enable this option if you need to comply with the european legislation (GDPR & ePrivacy).", "legalnotices")
+                } %}
+                {% include "components/forms/checkbox.html.twig" with {
+                    id: 'hide_decline_all',
+                    value: '1',
+                    checked: settings.hide_decline_all == 1 ? true : false,
+                    label: _T('Hide the "I decline" button', "legalnotices"),
+                    tip: _T("Do not enable this option if you need to comply with the european legislation (GDPR & ePrivacy).", "legalnotices")
+                } %}
+                {% include "components/forms/number.html.twig" with {
+                    id: 'cookie_expiration',
+                    component_class: 'inline field',
+                    value: settings.cookie_expiration,
+                    label: _T("Cookie lifetime", "legalnotices"),
+                    tip: _T("Specify the maximum lifetime of the cookie used to store consent information in the browser (in days). After this period, the user's consent will be requested again.", "legalnotices")
+                } %}
+                {% include "components/forms/text.html.twig" with {
+                    id: 'cookie_domain',
+                    component_class: 'inline field',
+                    value: settings.cookie_domain,
+                    label: _T("Cookie domain", "legalnotices"),
+                    tip: _T("Use this if you want to get consent once for multiple matching domains. By default, the current domain is used.", "legalnotices")
+                } %}
+                {% include "components/forms/checkbox.html.twig" with {
+                    id: 'enable_localstorage',
+                    value: '1',
+                    checked: settings.enable_localstorage == 1 ? true : false,
+                    label: _T('Enable "localStorage"', "legalnotices"),
+                    tip: _T('By default, consent information is stored in the browser with a cookie. Enable this option if you want to use "locaStorage" instead. If enabled, setting the options above related to the cookie becomes irrelevant.', "legalnotices")
+                } %}
+            </div>
+
+            <div class="ui basic center aligned segment">
+                <button type="submit" class="ui labeled icon primary button action">
+                    <i class="save icon"></i> {{ _T("Save") }}
+                </button>
+                {% include "components/forms/csrf.html.twig" %}
+            </div>
+        </form>
+    {% endif %}
+{% endblock %}

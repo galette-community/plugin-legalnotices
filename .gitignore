@@ -1,0 +1,8 @@
+*.swp
+*.exvim*
+node_modules/
+templates/default/local_klaro_config.html.twig
+webroot/js/klaro.js
+dist/
+tempcache/
+tests/coverage/

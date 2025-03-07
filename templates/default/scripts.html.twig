@@ -1,0 +1,154 @@
+{#
+/**
+ * Copyright © 2003-2025 The Galette Team
+ *
+ * This file is part of Galette (https://galette.eu).
+ *
+ * Galette is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * Galette is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with Galette. If not, see <http://www.gnu.org/licenses/>.
+ */
+#}
+
+{% set settings = callstatic('\\GaletteLegalNotices\\PluginGaletteLegalnotices', 'getPluginSettings') %}
+
+{% if settings.enable_cmp == '1' or settings.publicpage_links != '1' or (settings.publicpage_links == '1' and preferences.pref_bool_publicpages != '1') %}
+    <script type="text/javascript">
+        let footer_links = document.querySelector('.page-footer .horizontal.bulleted.link.list');
+    {% if settings.publicpage_links != '1' or (settings.publicpage_links == '1' and preferences.pref_bool_publicpages != '1') %}
+        {% if settings.enable_privacy_policy == 1 %}
+            let privacy_link = '<a class="item" href="{{ url_for('legalnotices_page', {'name': 'privacy-policy'}) }}"><i class="lock icon"></i>{{ _T("Privacy Policy", "legalnotices") }}</a>';
+            footer_links.insertAdjacentHTML('afterbegin', privacy_link);
+        {% endif %}
+        {% if settings.enable_terms_of_service == 1 %}
+            let terms_link = '<a class="item" href="{{ url_for('legalnotices_page', {'name': 'terms-of-service'}) }}"><i class="handshake outline icon"></i>{{ _T("Terms of Service", "legalnotices") }}</a>';
+            footer_links.insertAdjacentHTML('afterbegin', terms_link);
+        {% endif %}
+        {% if settings.enable_legal_information == 1 %}
+            let information_link = '<a class="item" href="{{ url_for('legalnotices_page', {'name': 'legal-information'}) }}"><i class="balance scale left icon"></i>{{ _T("Legal Information", "legalnotices") }}</a>';
+            footer_links.insertAdjacentHTML('afterbegin', information_link);
+        {% endif %}
+    {% endif %}
+    {% if settings.enable_cmp == '1' %}
+        var klaroConfig = {
+        {% if settings.enable_localstorage == 1 %}
+            storageMethod: 'localStorage',
+        {% endif %}
+            storageName: 'galette_cmp',
+            htmlTexts: true,
+            default: false,
+            acceptAll: {{ settings.hide_accept_all != 1 ? 'true' : 'false' }},
+            hideDeclineAll: {{ settings.hide_decline_all != 1 ? 'false' : 'true' }},
+        {% if settings.enable_localstorage != 1 %}
+            cookieExpiresAfterDays: {{ settings.cookie_expiration }},
+            {% if settings.cookie_domain != '' %}
+                cookieDomain: '{{ settings.cookie_domain }}',
+            {% endif %}
+        {% endif %}
+            translations: {
+                zz: {
+                    consentModal: {
+                        title: '{{ _T("Services we would like to use", "legalnotices") }}',
+                        description: '{{ _T("Here you can assess and customize the services that we'd like to use on this website. You're in charge! Enable or disable services as you see fit.", "legalnotices") }}'
+                    },
+                    consentNotice: {
+                        testing: '{{ _T("Testing mode!", "legalnotices") }}',
+                        changeDescription: '{{ _T("There were changes since your last visit, please renew your consent.", "legalnotices") }}',
+                        description: '{{ _T("Hi! Could we please enable some additional services for {purposes}? You can always change or withdraw your consent later.", "legalnotices") }}',
+                        learnMore: '{{ _T("Let me choose", "legalnotices") }}'
+                    },
+                    purposes: {
+                        functional: {
+                            title: '{{ _T("Service Provision", "legalnotices") }}',
+                            description: '{{ _T("These services are essential for the correct functioning of this website. You cannot disable them here as the service would not work correctly otherwise.", "legalnotices") }}'
+                        },
+                        performance: {
+                            title: '{{ _T("Performance Optimization", "legalnotices") }}',
+                            description: '{{ _T("These services process personal information to optimize the service that this website offers.", "legalnotices") }}'
+                        },
+                        analytics: {
+                            title: "{{ _T("Analytics", "legalnotices")|raw }}",
+                            description: '{{ _T("These services process personal information to let us know how you use this website.", "legalnotices") }}'
+                        },
+                        marketing: {
+                            title: '{{ _T("Marketing", "legalnotices") }}',
+                            description: '{{ _T("These services process personal information to show you relevant content about products, services or topics that you might be interested in.", "legalnotices") }}'
+                        },
+                        advertising: {
+                            title: '{{ _T("Advertising", "legalnotices") }}',
+                            description: '{{ _T("These services process personal information to show you personalized or interest-based advertisements.", "legalnotices") }}'
+                        }
+                    },
+                    purposeItem: {
+                        service: '{{ _T("service", "legalnotices") }}',
+                        services: '{{ _T("services", "legalnotices") }}'
+                    },
+                    ok: "{{ _T("That's ok", "legalnotices")|raw }}",
+                    save: '{{ _T("Save", "legalnotices") }}',
+                    decline: '{{ _T("I decline", "legalnotices") }}',
+                    close: '{{ _T("Close", "legalnotices") }}',
+                    acceptAll: '{{ _T("Accept all", "legalnotices") }}',
+                    acceptSelected: '{{ _T("Accept selected", "legalnotices") }}',
+                    privacyPolicyUrl: '{{ url_for("legalnotices_page", {"name": "privacy-policy"}) }}',
+                    privacyPolicy: {
+                        name: '{{ _T("privacy policy", "legalnotices") }}',
+                        text: '{{ _T("To learn more, please read our {privacyPolicy}.", "legalnotices") }}'
+                    },
+                    service: {
+                        disableAll: {
+                            title: '{{ _T("Enable or disable all services", "legalnotices") }}',
+                            description: '{{ _T("Use this switch to enable or disable all services.", "legalnotices") }}'
+                        },
+                        optOut: {
+                            title: '{{ _T("(opt-out)", "legalnotices") }}',
+                            description: '{{ _T("This service is loaded by default (but you can opt out)", "legalnotices") }}'
+                        },
+                        required: {
+                            title: '{{ _T("(always required)", "legalnotices") }}',
+                            description: '{{ _T("This services is always required", "legalnotices") }}'
+                        },
+                        purposes: '{{ _T("purposes:", "legalnotices") }}',
+                        purpose: '{{ _T("purpose:", "legalnotices") }}'
+                    },
+                    poweredBy: '{{ _T("Realized with Klaro!", "legalnotices") }}',
+                    contextualConsent: {
+                        description: '{{ _T("Do you want to load external content supplied by {title}?", "legalnotices") }}',
+                        acceptOnce: '{{ _T("Yes", "legalnotices") }}',
+                        acceptAlways: '{{ _T("Always", "legalnotices") }}'
+                    }
+                }
+            },
+            services: [
+                {
+                    name: 'galette',
+                    purposes: ['functional'],
+                    required: true,
+                    translations: {
+                        zz: {
+                            title: 'Galette',
+                            description: '{{ _T("The cookies used by Galette do not store your personal data and do not track you.", "legalnotices") }}',
+                        }
+                    }
+                }
+            ]
+        };
+        let cmp_link = '<a class="item" onclick="klaro.show();" href="#"><i class="shield alternate icon"></i>{{ _T("Consent Manager", "legalnotices") }}</a>';
+        footer_links.insertAdjacentHTML('beforeend', cmp_link);
+    {% endif %}
+    </script>
+
+    {% if settings.enable_cmp == '1' %}
+        <script defer type="application/javascript" src="{{ url_for('plugin_res', {'plugin': module_id, 'path': 'js/klaro.js'}) }}"></script>
+        {% include '@PluginGaletteLegalnotices/local_klaro_config.html.twig' ignore missing %}
+    {% endif %}
+{% endif %}
+

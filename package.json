@@ -1,0 +1,19 @@
+{
+  "name": "plugin-legalnotices",
+  "version": "1.0-dev",
+  "description": "Galette plugin to manage legal notices",
+  "author": "Guillaume AGNIERAY",
+  "license": "GPL-3.0-or-later",
+  "type": "module",
+  "scripts": {
+    "build": "./node_modules/.bin/gulp",
+    "clean": "./node_modules/.bin/gulp clean"
+  },
+  "dependencies": {
+    "klaro": "^0.7.21"
+  },
+  "devDependencies": {
+    "del": "^8.0.0",
+    "gulp": "^5.0.0"
+  }
+}

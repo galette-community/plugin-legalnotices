@@ -1,0 +1,45 @@
+{#
+/**
+ * Copyright © 2003-2025 The Galette Team
+ *
+ * This file is part of Galette (https://galette.eu).
+ *
+ * Galette is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * Galette is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with Galette. If not, see <http://www.gnu.org/licenses/>.
+ */
+#}
+
+{% extends not login.isLogged() ? "public_page.html.twig" : "page.html.twig" %}
+
+{% block content %}
+    {% if login.isLogged() and login.isAdmin() or login.isStaff() %}
+        <div class="ui horizontally fitted basic segment">
+            <a href="{{ url_for('legalnotices_pages', {'lang': i18n.getID(), 'name': name}) }}" class="ui labeled icon button">
+              <i class="edit blue icon" aria-hidden="true"></i>
+              {{ _T("Edit this page", "legalnotices") }}
+            </a>
+        </div>
+    {% endif %}
+
+    {{ body|raw }}
+
+    <div class="ui right aligned horizontally fitted basic segment">
+        <em><strong>{{ _T("Last update", "legalnotices") }} :</strong> {{ last_update }}</em>
+        {% if not translated %}
+            <span class="ui grey label">
+                <i class="language icon"></i>
+                {{ _T("This page has not been translated in your language", "legalnotices") }}
+            </span>
+        {% endif %}
+    </div>
+{% endblock %}

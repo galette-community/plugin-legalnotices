@@ -1,0 +1,9 @@
+.klaro .cookie-modal p.cm-powered-by {
+    display: none;
+}
+div.field:not(.disabled) .note-editor.note-frame .note-editing-area .note-editable {
+    height: 500px !important;
+}
+div.field.disabled .note-editor.note-frame .note-editing-area .note-editable {
+    height: 100px !important;
+}
