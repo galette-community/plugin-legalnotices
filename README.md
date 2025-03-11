@@ -7,9 +7,9 @@ A [Galette](https://galette.eu) plugin to manage legal notices pages, and *event
 
 This plugin uses [Klaro!](https://github.com/klaro-org/klaro-js) as its Consent Management Platform (CMP).
 
-* website: https://gagnieray.github.io/plugin-legalnotices/
-* bugs and features: https://github.com/gagnieray/plugin-legalnotices/issues
-* documentation: https://gagnieray.github.io/plugin-legalnotices/documentation.html
+* [website](https://gagnieray.github.io/plugin-legalnotices/)
+* [bugs and features](https://github.com/gagnieray/plugin-legalnotices/issues)
+* [documentation](https://gagnieray.github.io/plugin-legalnotices/documentation.html)
 
 To use Galette Legal Notices plugin, you'll need a reliable Galette version, and of course the plugin itself by either:
 
@@ -22,9 +22,9 @@ Un plugin [Galette](https://galette.eu) pour gérer des pages de mentions légal
 
 Ce plugin utilise [Klaro!](https://github.com/klaro-org/klaro-js) comme Plateforme de Gestion du Consentement (PGC).
 
-* site web : https://gagnieray.github.io/plugin-legalnotices/
-* bogues et fonctionnalités : https://github.com/gagnieray/plugin-legalnotices/issues
-* documentation : https://gagnieray.github.io/plugin-legalnotices/documentation.html
+* [site web](https://gagnieray.github.io/plugin-legalnotices/)
+* [bogues et fonctionnalités](https://github.com/gagnieray/plugin-legalnotices/issues)
+* [documentation](https://gagnieray.github.io/plugin-legalnotices/documentation.html)
 
 Pour utiliser le plugin Legal Notices pour Galette, vous aurez besoin d'une version adéquate de Galette, ainsi que du plugin lui même :
 
