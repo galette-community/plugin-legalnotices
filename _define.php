@@ -25,7 +25,7 @@ $this->register(
     'Galette Legal Notices',
     'Manage legal notices in Galette',
     'Guillaume AGNIERAY',
-    '1.0.0-rc1',
+    '1.0.0-rc2',
     '1.2.0',
     'legalnotices',
     '2025-03-07',
