@@ -147,7 +147,7 @@
     </script>
 
     {% if settings.enable_cmp == '1' %}
-        <script defer type="application/javascript" src="{{ url_for('plugin_res', {'plugin': module_id, 'path': 'js/klaro.js'}) }}"></script>
+        <script defer type="application/javascript" src="{{ url_for('plugin_res', {'plugin': module_id, 'path': 'js/klaro-no-css.js'}) }}"></script>
         {% include '@PluginGaletteLegalnotices/local_klaro_config.html.twig' ignore missing %}
     {% endif %}
 {% endif %}

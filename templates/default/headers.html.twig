@@ -22,5 +22,60 @@
 {% set settings = callstatic('\\GaletteLegalNotices\\PluginGaletteLegalnotices', 'getPluginSettings') %}
 
 {% if settings.enable_cmp == '1' %}
+    <link rel="stylesheet" type="text/css" href="{{ url_for("plugin_res", {"plugin": module_id, "path": "klaro.min.css"}) }}"/>
+    <link rel="stylesheet" type="text/css" href="{{ url_for("plugin_res", {"plugin": module_id, "path": "klaro-override.css"}) }}"/>
+    {% if preferences.pref_enable_custom_colors %}
+        <style>
+            .klaro .cookie-modal .cm-btn.cm-btn-success:not(.cm-btn-info),
+            .klaro .context-notice .cm-btn.cm-btn-success:not(.cm-btn-info),
+            .klaro .cookie-notice .cm-btn.cm-btn-success:not(.cm-btn-info) {
+                color: var(--primaryTextColor);
+                background-color: var(--primaryColor);
+            }
+            .klaro .cookie-modal .cm-btn.cm-btn-success:not(.cm-btn-info):hover,
+            .klaro .context-notice .cm-btn.cm-btn-success:not(.cm-btn-info):hover,
+            .klaro .cookie-notice .cm-btn.cm-btn-success:not(.cm-btn-info):hover {
+                background: var(--primaryColor) linear-gradient(#0000001a, #0000001a);
+            }
+            .klaro .cookie-modal .cm-btn.cm-btn-success:not(.cm-btn-info):active,
+            .klaro .context-notice .cm-btn.cm-btn-success:not(.cm-btn-info):active,
+            .klaro .cookie-notice .cm-btn.cm-btn-success:not(.cm-btn-info):active {
+                background: var(--primaryColor) linear-gradient(#00000033, #00000033);
+            }
+            .klaro .cookie-modal .cm-btn.cm-btn-success-var,
+            .klaro .context-notice .cm-btn.cm-btn-success-var,
+            .klaro .cookie-notice .cm-btn.cm-btn-success-var {
+                background-color: var(--secondaryColor);
+            }
+            .klaro .cookie-modal .cm-btn.cm-btn-success-var:hover,
+            .klaro .context-notice .cm-btn.cm-btn-success-var:hover,
+            .klaro .cookie-notice .cm-btn.cm-btn-success-var:hover {
+                color: var(--primaryTextColor);
+                background-color: var(--primaryColor);
+            }
+            .klaro .cookie-modal .cm-btn.cm-btn-success-var:active,
+            .klaro .context-notice .cm-btn.cm-btn-success-var:active,
+            .klaro .cookie-notice .cm-btn.cm-btn-success-var:active {
+                color: var(--primaryTextColor);
+                background: var(--primaryColor) linear-gradient(#0000001a, #0000001a);
+            }
+            .klaro .cookie-modal .cm-list-input:checked + .cm-list-label .slider,
+            .klaro .context-notice .cm-list-input:checked + .cm-list-label .slider,
+            .klaro .cookie-notice .cm-list-input:checked + .cm-list-label .slider,
+            .klaro .cookie-modal .cm-list-input.required:checked + .cm-list-label .slider,
+            .klaro .context-notice .cm-list-input.required:checked + .cm-list-label .slider,
+            .klaro .cookie-notice .cm-list-input.required:checked + .cm-list-label .slider,
+            .klaro .cookie-modal .cm-list-input.half-checked:checked + .cm-list-label .slider,
+            .klaro .context-notice .cm-list-input.half-checked:checked + .cm-list-label .slider,
+            .klaro .cookie-notice .cm-list-input.half-checked:checked + .cm-list-label .slider,
+            .klaro .cookie-modal .cm-list-input.only-required + .cm-list-label .slider,
+            .klaro .context-notice .cm-list-input.only-required + .cm-list-label .slider,
+            .klaro .cookie-notice .cm-list-input.only-required + .cm-list-label .slider {
+                background-color: var(--primaryColor);
+            }
+        </style>
+    {% endif %}
+{% endif %}
+{% if cur_route == 'legalnotices_pages' %}
     <link rel="stylesheet" type="text/css" href="{{ url_for("plugin_res", {"plugin": module_id, "path": "galette_legalnotices.css"}) }}"/>
 {% endif %}

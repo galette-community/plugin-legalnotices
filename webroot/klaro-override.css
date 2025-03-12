@@ -1,0 +1,162 @@
+.klaro .cookie-modal p.cm-powered-by {
+    display: none;
+}
+.klaro .cookie-modal .cm-bg {
+    background: #000000d9;
+}
+.klaro .cookie-notice:not(.cookie-modal-notice),
+.klaro .cookie-modal .cm-modal.cm-klaro {
+    background-color: #fff;
+}
+.klaro .cookie-modal .cm-modal .cm-header {
+    border-bottom-color: #b2b7ba;
+}
+.klaro .cookie-modal .cm-modal .cm-footer {
+    border-top-color: #b2b7ba;
+    background-color: #f9fafb;
+}
+.klaro .cookie-modal .cm-modal .cm-body ul.cm-services li.cm-service.cm-toggle-all,
+.klaro .cookie-modal .cm-modal .cm-body ul.cm-services li.cm-purpose.cm-toggle-all,
+.klaro .cookie-modal .cm-modal .cm-body ul.cm-purposes li.cm-service.cm-toggle-all,
+.klaro .cookie-modal .cm-modal .cm-body ul.cm-purposes li.cm-purpose.cm-toggle-all {
+    border-top-color: #b2b7ba;
+}
+.klaro .cookie-modal p,
+.klaro .cookie-modal strong,
+.klaro .cookie-modal h1,
+.klaro .cookie-modal h2,
+.klaro .cookie-modal ul,
+.klaro .cookie-modal li,
+.klaro .context-notice p,
+.klaro .context-notice strong,
+.klaro .context-notice h1,
+.klaro .context-notice h2,
+.klaro .context-notice ul,
+.klaro .context-notice li,
+.klaro .cookie-notice p,
+.klaro .cookie-notice strong,
+.klaro .cookie-notice h1,
+.klaro .cookie-notice h2,
+.klaro .cookie-notice ul,
+.klaro .cookie-notice li {
+    color: #636b70;
+}
+.klaro .cookie-modal .cm-modal .hide svg {
+  stroke: #636b70;
+}
+.klaro .cookie-modal a,
+.klaro .context-notice a,
+.klaro .cookie-notice a {
+    color: #2f69b3;
+    text-decoration: none;
+}
+.klaro .cookie-modal a:hover,
+.klaro .context-notice a:hover,
+.klaro .cookie-notice a:hover {
+    color: #1557ab;
+    text-decoration: none;
+}
+.klaro .cookie-modal .cm-btn,
+.klaro .context-notice .cm-btn,
+.klaro .cookie-notice .cm-btn {
+    color: #0009;
+    background-color: #e0e1e2;
+    border-radius: .28571429rem;
+    padding: .78571429em 1.5em .78571429em;
+    font-weight: 700;
+    transition: opacity .1s ease,background-color .1s ease,color .1s ease,background .1s ease;
+}
+.klaro .cookie-modal .cm-btn:hover,
+.klaro .context-notice .cm-btn:hover,
+.klaro .cookie-notice .cm-btn:hover {
+    color: #000c;
+    background-color: #cacbcd;
+}
+.klaro .cookie-modal .cm-btn:focus-visible,
+.klaro .context-notice .cm-btn:focus-visible,
+.klaro .cookie-notice .cm-btn:focus-visible,
+.klaro .cookie-notice:not(.cookie-modal-notice):focus-visible {
+    outline: 3px solid #1c559e;
+}
+.klaro .cookie-modal .cm-btn.cm-btn-success,
+.klaro .context-notice .cm-btn.cm-btn-success,
+.klaro .cookie-notice .cm-btn.cm-btn-success {
+    color: #000c;
+    background-color: #ffb619;
+}
+.klaro .cookie-modal .cm-btn.cm-btn-success:hover,
+.klaro .context-notice .cm-btn.cm-btn-success:hover,
+.klaro .cookie-notice .cm-btn.cm-btn-success:hover {
+    background-color: #f4a700;
+}
+.klaro .cookie-modal .cm-btn.cm-btn-success:active,
+.klaro .context-notice .cm-btn.cm-btn-success:active,
+.klaro .cookie-notice .cm-btn.cm-btn-success:active {
+    background-color: #e59c00;
+}
+.klaro .cookie-modal .cm-btn.cm-btn-success-var,
+.klaro .context-notice .cm-btn.cm-btn-success-var,
+.klaro .cookie-notice .cm-btn.cm-btn-success-var {
+    background-color: #ffda89;
+}
+.klaro .cookie-modal .cm-btn.cm-btn-success-var:hover,
+.klaro .context-notice .cm-btn.cm-btn-success-var:hover,
+.klaro .cookie-notice .cm-btn.cm-btn-success-var:hover {
+    background-color: #ffb619;
+}
+.klaro .cookie-modal .cm-btn.cm-btn-success-var:active,
+.klaro .context-notice .cm-btn.cm-btn-success-var:active,
+.klaro .cookie-notice .cm-btn.cm-btn-success-var:active {
+    background-color: #f4a700;
+}
+.klaro .cookie-modal .cm-btn.cm-btn-info,
+.klaro .context-notice .cm-btn.cm-btn-info,
+.klaro .cookie-notice .cm-btn.cm-btn-info {
+    color: #0009;
+    background-color: #e0e1e2;
+}
+.klaro .cookie-modal .cm-btn.cm-btn-info:hover,
+.klaro .context-notice .cm-btn.cm-btn-info:hover,
+.klaro .cookie-notice .cm-btn.cm-btn-info:hover {
+    color: #000c;
+    background-color: #cacbcd;
+}
+.klaro .cookie-modal .cm-btn.cm-btn-info:active,
+.klaro .context-notice .cm-btn.cm-btn-info:active,
+.klaro .cookie-notice .cm-btn.cm-btn-info:active {
+    color: #000000e5;
+    background-color: #babbbc;
+}
+.klaro .cookie-modal .cm-btn.cm-btn-danger,
+.klaro .context-notice .cm-btn.cm-btn-danger,
+.klaro .cookie-notice .cm-btn.cm-btn-danger {
+    color: #0009;
+    background-color: #fff;
+    border: 1px solid #b2b7ba;
+    font-weight: 400;
+}
+.klaro .cookie-modal .cm-btn.cm-btn-danger:hover,
+.klaro .context-notice .cm-btn.cm-btn-danger:hover,
+.klaro .cookie-notice .cm-btn.cm-btn-danger:hover {
+    color: #000c;
+}
+.klaro .cookie-modal .cm-btn.cm-btn-danger:active,
+.klaro .context-notice .cm-btn.cm-btn-danger:active,
+.klaro .cookie-notice .cm-btn.cm-btn-danger:active {
+    color: #000000e5;
+    background: #f8f8f8;
+}
+.klaro .cookie-modal .cm-list-input:checked + .cm-list-label .slider,
+.klaro .context-notice .cm-list-input:checked + .cm-list-label .slider,
+.klaro .cookie-notice .cm-list-input:checked + .cm-list-label .slider,
+.klaro .cookie-modal .cm-list-input.required:checked + .cm-list-label .slider,
+.klaro .context-notice .cm-list-input.required:checked + .cm-list-label .slider,
+.klaro .cookie-notice .cm-list-input.required:checked + .cm-list-label .slider,
+.klaro .cookie-modal .cm-list-input.half-checked:checked + .cm-list-label .slider,
+.klaro .context-notice .cm-list-input.half-checked:checked + .cm-list-label .slider,
+.klaro .cookie-notice .cm-list-input.half-checked:checked + .cm-list-label .slider,
+.klaro .cookie-modal .cm-list-input.only-required + .cm-list-label .slider,
+.klaro .context-notice .cm-list-input.only-required + .cm-list-label .slider,
+.klaro .cookie-notice .cm-list-input.only-required + .cm-list-label .slider {
+    background-color: #ffb619;
+}

@@ -2,7 +2,8 @@
 *.exvim*
 node_modules/
 templates/default/local_klaro_config.html.twig
-webroot/js/klaro.js
+webroot/js/klaro-no-css.js
+webroot/klaro.min.css
 dist/
 tempcache/
 tests/coverage/
