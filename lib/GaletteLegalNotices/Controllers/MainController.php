@@ -82,7 +82,8 @@ class MainController extends AbstractPluginController
                 'cur_lang_name'     => $this->i18n->getNameFromId($lang),
                 'cur_name'          => $name,
                 'page'              => $page,
-                'html_editor'       => true
+                'html_editor'       => true,
+                'documentation'     => 'https://gagnieray.github.io/plugin-legalnotices/documentation.html#pages-content'
             ]
         );
         return $response;
@@ -264,6 +265,7 @@ class MainController extends AbstractPluginController
             'page_title' => _T("Legal Notices settings", "legalnotices"),
             'settings' => $settings,
             'langlist' => $this->i18n->getList(),
+            'documentation' => 'https://gagnieray.github.io/plugin-legalnotices/documentation.html#settings'
         ];
 
         // Display page
