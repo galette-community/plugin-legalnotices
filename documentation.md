@@ -73,9 +73,17 @@ If both fields remain empty, the content of the *fallback language* chosen in th
 
 **Note**: using the Consent Management Plateform (CMP) requires that you understand and know how to write JavaScript code.
 
-Enabling the CMP in the settings does nothing useful on its own. By default, it will only display a message about the functional cookies stored by Galette. It will also add a link in the footer to open the Consent Manager after consent has already been received.
+Enabling the CMP in the settings does nothing useful on its own. By default, it will only display a message about the functional cookies stored by Galette.
+
+![Consent Manager modal](images/cmp-modal.jpg)
+
+It will also add a link in the footer to open the Consent Manager after consent has already been received.
+
+![CMP link in footer](images/cmp-footer.jpg)
 
 Thus, the CMP is only useful when you add additional external services for which user consent is required to enable them in Galette, such as an analytics service.
+
+![CMP message](images/cmp-message.jpg)
 
 ### How to add an external service ?
 
