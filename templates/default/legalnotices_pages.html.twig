@@ -69,6 +69,7 @@
                     id: 'page_body',
                     value: page.body,
                     label: _T("Page body", "legalnotices"),
+                    withlegend: true,
                     component_class: page.url != '' ? 'disabled field' : 'field'
                 } %}
                 <div class="ui horizontal divider">
@@ -92,6 +93,7 @@
                 {% include "components/forms/csrf.html.twig" %}
             </div>
         </form>
+        {% include 'modals/replacements_legend.html.twig' with {'legends': pages.getLegend(), 'cur_ref': cur_name} %}
     {% endif %}
 {% endblock %}
 
@@ -102,6 +104,9 @@
             {% if page.url != '' %}
                 $('#page_body').summernote('disable');
             {% endif %}
+            _addLegendButton('.ui.corner.label');
+            _handleLegend();
+            _bindFomanticComponents();
         });
     </script>
 {% endblock %}

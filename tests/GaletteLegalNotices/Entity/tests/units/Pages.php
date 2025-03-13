@@ -55,7 +55,7 @@ class Pages extends GaletteTestCase
     {
         $count_pages = 3;
         $pages = new \GaletteLegalNotices\Entity\Pages(
-            $this->zdb
+            $this->preferences
         );
         $pages->installInit();
 
