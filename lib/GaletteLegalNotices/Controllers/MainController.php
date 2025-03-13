@@ -65,7 +65,7 @@ class MainController extends AbstractPluginController
             $name = Pages::DEFAULT_NAME;
         }
 
-        $pages = new Pages($this->zdb);
+        $pages = new Pages($this->preferences, $this->routeparser);
 
         $page = $pages->getPages($name, $lang);
 
@@ -124,7 +124,7 @@ class MainController extends AbstractPluginController
     public function editPage(Request $request, Response $response): Response
     {
         $post = $request->getParsedBody();
-        $pages = new Pages($this->zdb);
+        $pages = new Pages($this->preferences, $this->routeparser);
 
         $cur_lang = $post['cur_lang'];
         $cur_name = $post['cur_name'];
@@ -186,7 +186,7 @@ class MainController extends AbstractPluginController
         global $i18n;
         $lang = $i18n->getID();
         $login = $this->login;
-        $pages = new Pages($this->zdb);
+        $pages = new Pages($this->preferences, $this->routeparser);
         $plugin_settings = new Settings($this->zdb);
         $translated = true;
 
@@ -204,7 +204,7 @@ class MainController extends AbstractPluginController
         $params = [
             'name'          => $page['name'],
             'page_title'    => $page['label'],
-            'body'          => $page['body'],
+            'body'          => $pages->getBody(),
             'last_update'   => $last_update->format(_T('Y-m-d')),
             'translated'    => $translated
         ];

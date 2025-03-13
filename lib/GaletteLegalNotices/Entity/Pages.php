@@ -25,7 +25,9 @@ namespace GaletteLegalNotices\Entity;
 
 use ArrayObject;
 use Galette\Core\I18n;
-use Galette\Core\Db;
+use Galette\Core\Preferences;
+use Galette\Features\Replacements;
+use Slim\Routing\RouteParser;
 use Throwable;
 use Analog\Analog;
 use Laminas\Db\Sql\Expression;
@@ -40,6 +42,10 @@ use Laminas\Db\Sql\Expression;
 
 class Pages
 {
+    use Replacements {
+        getLegend as protected trait_getLegend;
+    }
+
     /** @var ArrayObject<string, int|string> */
     private ArrayObject $current_page;
     public const TABLE = 'pages';
@@ -51,18 +57,32 @@ class Pages
     /** @var array<int, string> */
     private array $translated = [];
 
-    private Db $zdb;
-
     /**
      * Main constructor
      *
-     * @param Db $zdb Database instance
-     *
-     * @return void
+     * @param Preferences      $preferences Galette's preferences
+     * @param RouteParser|null $routeparser RouteParser instance
      */
-    public function __construct(Db $zdb)
+    public function __construct(Preferences $preferences, ?RouteParser $routeparser = null)
     {
-        $this->zdb = $zdb;
+        global $zdb, $login, $container;
+        $this->preferences = $preferences;
+        if ($routeparser === null) {
+            $routeparser = $container->get(RouteParser::class);
+        }
+        if ($login === null) {
+            $login = $container->get('login');
+        }
+        $this->routeparser = $routeparser;
+        $this
+            ->setDb($zdb)
+            ->setLogin($login);
+
+        $this->setPatterns(
+            $this->getMainPatterns()
+        );
+        $this->setMain();
+
         $this->checkUpdate();
         $this->checkTranslated();
     }
@@ -383,6 +403,16 @@ class Pages
     }
 
     /**
+     * Get the page body, with all replacements done
+     *
+     * @return string
+     */
+    public function getBody(): string
+    {
+        return $this->proceedReplacements($this->current_page['body']);
+    }
+
+    /**
      * Insert values in database
      *
      * @param array<int, mixed> $values Values to insert
@@ -480,6 +510,26 @@ class Pages
         // Reset to current lang
         $i18n->changeLanguage($current_lang);
         return $pages;
+    }
+
+    /**
+     * Build legend array
+     *
+     * @return array<string, mixed>
+     */
+    public function getLegend(): array
+    {
+        $legend = $this->trait_getLegend();
+
+        // Unset unnecessary patterns
+        unset($legend['main']['patterns']['asso_logo']);
+        unset($legend['main']['patterns']['asso_print_logo']);
+        unset($legend['main']['patterns']['date_now']);
+        unset($legend['main']['patterns']['login_uri']);
+        unset($legend['main']['patterns']['asso_footer']);
+        unset($legend['member']);
+
+        return $legend;
     }
 
     /**
