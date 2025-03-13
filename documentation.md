@@ -12,8 +12,8 @@ This plugin provides:
 
 First of all, download the plugin:
 
-[![Get latest Legal Notices plugin!](https://img.shields.io/badge/1.0.0-LegalNotices-ffb619?style=for-the-badge&logo=php&logoColor=white&label=1.0.0-rc2&color=ffb619
-)](https://github.com/gagnieray/plugin-legalnotices/releases/tag/1.0.0-rc2)
+[![Get latest Legal Notices plugin!](https://img.shields.io/badge/1.0.0-LegalNotices-ffb619?style=for-the-badge&logo=php&logoColor=white&label=1.0.0-rc3&color=ffb619
+)](https://github.com/gagnieray/plugin-legalnotices/releases/tag/1.0.0-rc3)
 
 Extract the downloaded archive into Galette `plugins` directory. For example, on linux (replacing *{url}* and *{version}* with correct values):
 
@@ -57,7 +57,13 @@ Several settings allow to change the plugin's behavior:
 
 The content of each **page** can be edited in every available **language**.
 
-It is possible to edit the **page body** using the WYSIWYG editor.
+It is possible to edit the **page body** with the WYSIWYG editor. The following replacements values can be used in the page body (refer to the inline help from the user interface to get details) :
+
+* `{ASSO_NAME}`
+* `{ASSO_SLOGAN}`
+* `{ASSO_ADDRESS}`
+* `{ASSO_ADDRESS_MULTI}`
+* `{ASSO_WEBSITE}`
 
 It is also possible to define an **external URL** when such a page already exists (on the association's website, for example). If it is defined, editing of the page body will be disabled, and users will be redirected to this link.
 
