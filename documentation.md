@@ -1,12 +1,12 @@
 This plugin provides:
 
-* up to 3 pages to write down legal notices :
-  - Legal Information (for all common legal notices)
-  - Terms of Service (in case you need to provide such terms)
-  - Privacy Policy (for all notices regarding personal data processing and the use of cookies)
-* a Consent Management Platform (for advanced users)
+* up to **3 pages** to write down legal notices :
+  - *Legal Information* (for all common legal notices)
+  - *Terms of Service* (in case you need to provide such terms)
+  - *Privacy Policy* (for all notices regarding personal data processing and the use of cookies)
+* a **Consent Management Platform** (for advanced users)
 
-**Note**: this plugin requires Galette 1.2.0 or later.
+**Note**: this plugin requires **Galette 1.2.0 or later**.
 
 ## Installation
 
@@ -27,11 +27,13 @@ $ tar xjvf galette-plugin-legalnotices-{version}.tar.bz2
 
 In order to work, this plugin requires several tables in the database. See the [Galette plugins management interface](https://doc.galette.eu/en/master/plugins/index.html#plugins-managment).
 
-And that’s it; the Legal Notices plugin is installed. :)
+And that’s it; the *Legal Notices* plugin is installed. :)
 
 ## Plugin usage
 
-When the plugin is installed, a Legal Notices group is added to the Galette menu when a user is logged in, allowing administrators and staff members to define the settings of the plugin and edit the content of the pages.
+When the plugin is installed, a *Legal Notices* group is added to the Galette menu when a user is logged in, allowing administrators and staff members to define the settings of the plugin and edit the content of the pages.
+
+![Plugin's menu](images/menu.jpg)
 
 ### Settings
 
@@ -57,7 +59,7 @@ Several settings allow to change the plugin's behavior:
 
 The content of each **page** can be edited in every available **language**.
 
-It is possible to edit the **page body** with the WYSIWYG editor. The following replacements values can be used in the page body (refer to the inline help from the user interface to get details) :
+It is possible to edit the **page body** with the WYSIWYG editor. The following replacements values can be used (refer to the inline help from the user interface to get details) :
 
 * `{ASSO_NAME}`
 * `{ASSO_SLOGAN}`
@@ -65,7 +67,7 @@ It is possible to edit the **page body** with the WYSIWYG editor. The following 
 * `{ASSO_ADDRESS_MULTI}`
 * `{ASSO_WEBSITE}`
 
-It is also possible to define an **external URL** when such a page already exists (on the association's website, for example). If it is defined, editing of the page body will be disabled, and users will be redirected to this link.
+It is also possible to define an **external URL** when such a page already exists (on the association's website, for example). If it is defined, editing of the page body will be disabled, and users will be redirected to this URL.
 
 If both fields remain empty, the content of the *fallback language* chosen in the settings will be displayed to the users.
 
@@ -91,7 +93,9 @@ Thus, the CMP is only useful when you add additional external services for which
 
 1. First, you have to create a custom template file named `local_klaro_config.html.twig` in the `templates/default` folder of the plugin.
 
-2. Then, you need to add the service in the CMP. Use the following code in your custom template file (adjust it to your needs ; you can find more details in the documentation of the CMP ; please read the [Annotated Config File](https://klaro.org/docs/integration/annotated-configuration)):
+2. Then, you need to add the service in the CMP. Use the following code in your custom template file (adjust it to your needs ; you can find more details in the documentation of the CMP ; please read the [Annotated Config File](https://klaro.org/docs/integration/annotated-configuration)).
+
+   Example :
 
    ```
    <script type="text/javascript">
@@ -116,7 +120,9 @@ Thus, the CMP is only useful when you add additional external services for which
    * `marketing`
    * `advertising`
 
-3. Finally, you need to add in your custom template file the actual code provided by the service, *but with minor changes* to the attributes of the `script` tag (for more explanations, read the second part of the [Getting Started](https://klaro.org/docs/getting-started) chapter in the documentation of the CMP) :
+3. Finally, you need to add in your custom template file the actual code provided by the service, *but with minor changes* to the attributes of the `script` tag (for more explanations, read the second part of the [Getting Started](https://klaro.org/docs/getting-started) chapter in the documentation of the CMP).
+
+   Example :
 
    ```
    <script type="text/plain" data-type="application/javascript" data-src="https://YOUR_MATOMO_URL" data-name="matomo"></script>
