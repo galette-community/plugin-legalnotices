@@ -80,11 +80,69 @@ class Pages
 
         $this->setPatterns(
             $this->getMainPatterns()
+            + $this->getPagesPatterns()
         );
-        $this->setMain();
+        $this
+            ->setMain()
+            ->setPagesPatterns();
 
         $this->checkUpdate();
         $this->checkTranslated();
+    }
+
+    /**
+     * Get patterns for pages
+     *
+     * @param boolean $legacy Whether to load legacy patterns
+     *
+     * @return array<string, array<string, list<string>|string>>
+     */
+    protected function getPagesPatterns(bool $legacy = true): array
+    {
+        $p_patterns = [
+            'asso_phone_link' => [
+                'title'       => _T("Your organisation phone number link", "legalnotices"),
+                'pattern'     => '/{ASSO_PHONE_LINK}/',
+            ],
+            'asso_email_link' => [
+                'title'       => _T("Your organisation email address link", "legalnotices"),
+                'pattern'     => '/{ASSO_EMAIL_LINK}/',
+            ]
+        ];
+
+        return $p_patterns;
+    }
+
+    /**
+     * Set pages replacements
+     *
+     * @return self
+     */
+    public function setPagesPatterns(): self
+    {
+        $phone_number = $this->preferences->getPhoneNumber();
+        $phone_link = '<a href="tel:' . preg_replace('/[^0-9+]/', '', $phone_number) . '">' . $phone_number . '</a>';
+
+        // Obfuscate email address to prevent from being collected by spambots.
+        $email_parts = explode('@', $this->preferences->pref_org_email);
+        $user_part = $email_parts[0];
+        $domain_part = str_replace('.', '<span class="p"> [dot] </span>', $email_parts[1]);
+        $regs = [
+            '/%user/',
+            '/%domain/'
+        ];
+        $replacements = [
+            $user_part,
+            $domain_part
+        ];
+        $link = '<span class="obfuscate"><span class="u">%user</span> [at] <span class="d">%domain</span></span>';
+        $email_link = preg_replace($regs, $replacements, $link);
+
+        $this->setReplacements([
+            'asso_phone_link' => $phone_link,
+            'asso_email_link' => $email_link
+        ]);
+        return $this;
     }
 
     /**
@@ -528,6 +586,12 @@ class Pages
         unset($legend['main']['patterns']['login_uri']);
         unset($legend['main']['patterns']['asso_footer']);
         unset($legend['member']);
+
+        $patterns = $this->getPagesPatterns(false);
+        $legend['Pages'] = [
+            'title'     => _T("Specific to the Legal Notices plugin", "legalnotices"),
+            'patterns'  => $patterns
+        ];
 
         return $legend;
     }
