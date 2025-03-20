@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-07 15:04+0100\n"
-"PO-Revision-Date: 2025-03-07 15:11+0100\n"
+"POT-Creation-Date: 2025-03-20 10:21+0100\n"
+"PO-Revision-Date: 2025-03-20 10:25+0100\n"
 "Last-Translator: Guillaume AGNIERAY <dev@agnieray.net>\n"
 "Language-Team: \n"
 "Language: br\n"
@@ -26,46 +26,58 @@ msgstr ""
 msgid "Pages content"
 msgstr ""
 
-#: ../lib/GaletteLegalNotices/Controllers/MainController.php:146
+#: ../lib/GaletteLegalNotices/Controllers/MainController.php:147
 #, php-format
 msgid "The \"%s\" page has not been modified!"
 msgstr ""
 
-#: ../lib/GaletteLegalNotices/Controllers/MainController.php:155
+#: ../lib/GaletteLegalNotices/Controllers/MainController.php:156
 #, php-format
 msgid "The \"%s\" page has been successfully modified."
 msgstr ""
 
-#: ../lib/GaletteLegalNotices/Controllers/MainController.php:264
+#: ../lib/GaletteLegalNotices/Controllers/MainController.php:265
 msgid "Legal Notices settings"
 msgstr ""
 
-#: ../lib/GaletteLegalNotices/Controllers/MainController.php:304
+#: ../lib/GaletteLegalNotices/Controllers/MainController.php:306
 msgid "Legal Notices settings have been saved."
 msgstr ""
 
-#: ../lib/GaletteLegalNotices/Controllers/MainController.php:307
+#: ../lib/GaletteLegalNotices/Controllers/MainController.php:309
 msgid ""
 "An SQL error has occurred while storing Legal Notices settings. Please try "
 "again, and contact the administrator if the problem persists."
 msgstr ""
 
-#: ../lib/GaletteLegalNotices/Entity/Pages.php:452
+#: ../lib/GaletteLegalNotices/Entity/Pages.php:104
+msgid "Your organisation phone number link"
+msgstr ""
+
+#: ../lib/GaletteLegalNotices/Entity/Pages.php:108
+msgid "Your organisation email address link"
+msgstr ""
+
+#: ../lib/GaletteLegalNotices/Entity/Pages.php:540
 #: ../lib/GaletteLegalNotices/PluginGaletteLegalnotices.php:100
 #: ../tempcache/scripts.html.twig:88
 msgid "Legal Information"
 msgstr ""
 
-#: ../lib/GaletteLegalNotices/Entity/Pages.php:460
+#: ../lib/GaletteLegalNotices/Entity/Pages.php:548
 #: ../lib/GaletteLegalNotices/PluginGaletteLegalnotices.php:110
 #: ../tempcache/scripts.html.twig:76
 msgid "Terms of Service"
 msgstr ""
 
-#: ../lib/GaletteLegalNotices/Entity/Pages.php:468
+#: ../lib/GaletteLegalNotices/Entity/Pages.php:556
 #: ../lib/GaletteLegalNotices/PluginGaletteLegalnotices.php:120
 #: ../tempcache/scripts.html.twig:64
 msgid "Privacy Policy"
+msgstr ""
+
+#: ../lib/GaletteLegalNotices/Entity/Pages.php:592
+msgid "Specific to the Legal Notices plugin"
 msgstr ""
 
 #: ../lib/GaletteLegalNotices/PluginGaletteLegalnotices.php:76
@@ -73,15 +85,15 @@ msgstr ""
 msgid "Legal Notices"
 msgstr ""
 
-#: ../tempcache/legalnotices_page.html.twig:68
+#: ../tempcache/legalnotices_page.html.twig:69
 msgid "Edit this page"
 msgstr ""
 
-#: ../tempcache/legalnotices_page.html.twig:84
+#: ../tempcache/legalnotices_page.html.twig:85
 msgid "Last update"
 msgstr ""
 
-#: ../tempcache/legalnotices_page.html.twig:96
+#: ../tempcache/legalnotices_page.html.twig:97
 msgid "This page has not been translated in your language"
 msgstr ""
 
