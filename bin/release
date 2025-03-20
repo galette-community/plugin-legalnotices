@@ -378,9 +378,11 @@ def add_libs(rel_name, galette_archive):
     p1 = subprocess.Popen(wp_cmd, shell=True, cwd=npm_dir)
     p1.wait()
 
+    shutil.rmtree(os.path.join(npm_dir, '.github'))
     shutil.rmtree(os.path.join(npm_dir, 'node_modules'))
     shutil.rmtree(os.path.join(npm_dir, 'bin'))
     shutil.rmtree(os.path.join(npm_dir, 'tests'))
+    os.remove(os.path.join(npm_dir, '.composer-require-checker.config.json'))
     os.remove(os.path.join(npm_dir, '.gitignore'))
     os.remove(os.path.join(npm_dir, '.phpcs.xml'))
     os.remove(os.path.join(npm_dir, 'phpstan.neon'))
