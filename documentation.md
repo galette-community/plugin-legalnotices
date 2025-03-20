@@ -12,8 +12,8 @@ This plugin provides:
 
 First of all, download the plugin:
 
-[![Get latest Legal Notices plugin!](https://img.shields.io/badge/1.0.0-LegalNotices-ffb619?style=for-the-badge&logo=php&logoColor=white&label=1.0.0-rc4&color=ffb619
-)](https://github.com/gagnieray/plugin-legalnotices/releases/tag/1.0.0-rc4)
+[![Get latest Legal Notices plugin!](https://img.shields.io/badge/1.0.0-LegalNotices-ffb619?style=for-the-badge&logo=php&logoColor=white&label=1.0.0-rc5&color=ffb619
+)](https://github.com/gagnieray/plugin-legalnotices/releases/tag/1.0.0-rc5)
 
 Extract the downloaded archive into Galette `plugins` directory. For example, on linux (replacing *{url}* and *{version}* with correct values):
 
