@@ -43,7 +43,7 @@ use Laminas\Db\Sql\Expression;
 class Pages
 {
     use Replacements {
-        getLegend as protected trait_getLegend;
+        getMainPatterns as protected trait_getMainPatterns;
     }
 
     /** @var ArrayObject<string, int|string> */
@@ -120,23 +120,30 @@ class Pages
      */
     public function setPagesPatterns(): self
     {
+        $phone_link = '';
         $phone_number = $this->preferences->getPhoneNumber();
-        $phone_link = '<a href="tel:' . preg_replace('/[^0-9+]/', '', $phone_number) . '">' . $phone_number . '</a>';
+        if ($phone_number != '') {
+            $phone_link = '<a href="tel:' . preg_replace('/[^0-9+]/', '', $phone_number) . '">' . $phone_number . '</a>';
+        }
 
-        // Obfuscate email address to prevent from being collected by spambots.
-        $email_parts = explode('@', $this->preferences->pref_org_email);
-        $user_part = $email_parts[0];
-        $domain_part = str_replace('.', '<span class="p"> [dot] </span>', $email_parts[1]);
-        $regs = [
-            '/%user/',
-            '/%domain/'
-        ];
-        $replacements = [
-            $user_part,
-            $domain_part
-        ];
-        $link = '<span class="obfuscate"><span class="u">%user</span> [at] <span class="d">%domain</span></span>';
-        $email_link = preg_replace($regs, $replacements, $link);
+        $email_link = '';
+        $email_address = $this->preferences->pref_org_email;
+        if ($email_address != '') {
+            // Obfuscate email address to prevent from being collected by spambots.
+            $email_parts = explode('@', $email_address);
+            $user_part = $email_parts[0];
+            $domain_part = str_replace('.', '<span class="p"> [dot] </span>', $email_parts[1]);
+            $regs = [
+                '/%user/',
+                '/%domain/'
+            ];
+            $replacements = [
+                $user_part,
+                $domain_part
+            ];
+            $link = '<span class="obfuscate"><span class="u">%user</span> [at] <span class="d">%domain</span></span>';
+            $email_link = preg_replace($regs, $replacements, $link);
+        }
 
         $this->setReplacements([
             'asso_phone_link' => $phone_link,
@@ -577,7 +584,12 @@ class Pages
      */
     public function getLegend(): array
     {
-        $legend = $this->trait_getLegend();
+        $legend = [];
+
+        $legend['main'] = [
+            'title'     => _T('Main information'),
+            'patterns'  => $this->trait_getMainPatterns()
+        ];
 
         // Unset unnecessary patterns
         unset($legend['main']['patterns']['asso_logo']);
@@ -585,7 +597,6 @@ class Pages
         unset($legend['main']['patterns']['date_now']);
         unset($legend['main']['patterns']['login_uri']);
         unset($legend['main']['patterns']['asso_footer']);
-        unset($legend['member']);
 
         $patterns = $this->getPagesPatterns(false);
         $legend['Pages'] = [
