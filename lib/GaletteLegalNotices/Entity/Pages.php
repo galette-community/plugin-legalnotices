@@ -599,7 +599,7 @@ class Pages
         unset($legend['main']['patterns']['asso_footer']);
 
         $patterns = $this->getPagesPatterns(false);
-        $legend['Pages'] = [
+        $legend['pages'] = [
             'title'     => _T("Specific to the Legal Notices plugin", "legalnotices"),
             'patterns'  => $patterns
         ];

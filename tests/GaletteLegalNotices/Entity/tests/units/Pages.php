@@ -94,4 +94,77 @@ class Pages extends GaletteTestCase
             $this->assertGreaterThanOrEqual(2, $result->last_value, 'Incorrect texts sequence ' . $result->last_value);
         }
     }
+
+    /**
+     * Test expected patterns
+     *
+     * @return void
+     */
+    public function testExpectedPatterns(): void
+    {
+        $pages = new \GaletteLegalNotices\Entity\Pages(
+            $this->preferences
+        );
+
+        $pages_expected = [
+            'asso_name' => '/{ASSO_NAME}/',
+            'asso_slogan' => '/{ASSO_SLOGAN}/',
+            'asso_address' => '/{ASSO_ADDRESS}/',
+            'asso_address_multi' => '/{ASSO_ADDRESS_MULTI}/',
+            'asso_phone_number' => '/{ASSO_PHONE}/',
+            'asso_email' => '/{ASSO_EMAIL}/',
+            'asso_website' => '/{ASSO_WEBSITE}/',
+            'asso_logo' => '/{ASSO_LOGO}/',
+            'asso_print_logo' => '/{ASSO_PRINT_LOGO}/',
+            'date_now' => '/{DATE_NOW}/',
+            'login_uri' => '/{LOGIN_URI}/',
+            'asso_footer' => '/{ASSO_FOOTER}/',
+            'asso_phone_link' => '/{ASSO_PHONE_LINK}/',
+            'asso_email_link' => '/{ASSO_EMAIL_LINK}/'
+        ];
+        $this->assertSame($pages_expected, $pages->getPatterns());
+    }
+
+    /**
+     * Test page replacements
+     *
+     * @return void
+     */
+    public function testReplacements(): void
+    {
+        $page_body = '{ASSO_NAME} | {ASSO_PHONE_LINK} | {ASSO_EMAIL_LINK}';
+        $this->preferences->pref_org_email = 'contact@galette.eu';
+        $pages = new \GaletteLegalNotices\Entity\Pages(
+            $this->preferences
+        );
+        
+        $pages->storePageContent('legal-information', 'en_US', $page_body, '');
+        $pages->getPages('legal-information', 'en_US');
+        $this->assertSame(
+            'Galette | ' .
+            ' | ' .
+            '<span class="obfuscate"><span class="u">contact</span> [at] <span class="d">galette<span class="p"> [dot] </span>eu</span></span>',
+            $pages->getBody()
+        );
+        
+        $this->preferences->pref_org_phone_number = '+00 0 00 00 00 00';
+        $pages = new \GaletteLegalNotices\Entity\Pages(
+            $this->preferences
+        );
+        $pages->getPages('legal-information', 'en_US');
+        $this->assertSame(
+            'Galette | ' .
+            '<a href="tel:+00000000000">+00 0 00 00 00 00</a> | ' .
+            '<span class="obfuscate"><span class="u">contact</span> [at] <span class="d">galette<span class="p"> [dot] </span>eu</span></span>',
+            $pages->getBody()
+        );
+
+        $legend = $pages->getLegend();
+        $this->assertCount(2, $legend);
+        $this->assertArrayHasKey('main', $legend);
+        $this->assertArrayHasKey('pages', $legend);
+
+        $this->assertCount(7, $legend['main']['patterns']);
+        $this->assertCount(2, $legend['pages']['patterns']);
+    }
 }
