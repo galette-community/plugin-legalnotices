@@ -80,7 +80,8 @@
                     value: page.url,
                     label: _T("External URL", "legalnotices"),
                     type: 'text',
-                    tip: _T("Enter the URL that the user will be redirected to instead of displaying the content defined in the previous field. Setting this option disables editing of the page body.", "legalnotices")
+                    tip: _T("Enter the URL that the user will be redirected to instead of displaying the content defined in the previous field. Setting this option disables editing of the page body.", "legalnotices"),
+                    component_class: 'field nolegend'
                 } %}
             </div>
 
@@ -104,7 +105,7 @@
             {% if page.url != '' %}
                 $('#page_body').summernote('disable');
             {% endif %}
-            _addLegendButton('.ui.corner.label');
+            _addLegendButton('.field:not(.nolegend) .ui.corner.label');
             _handleLegend();
             _bindFomanticComponents();
         });
