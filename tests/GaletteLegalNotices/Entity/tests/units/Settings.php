@@ -71,6 +71,10 @@ class Settings extends GaletteTestCase
 
         //try to set and get a non existent value
         $settings->doesnotexist = 'that *does* not exist.';
+        $this->expectLogEntry(
+            \Analog::WARNING,
+            'Trying to set a Legal Notices setting value which does not seem to exist (doesnotexist)'
+        );
         $false_result = $settings->doesnotexist;
         $this->assertFalse($false_result);
 
@@ -92,8 +96,8 @@ class Settings extends GaletteTestCase
         $this->assertEquals($cookie_expiration, $check_cookie_expiration);
 
         //reset database value...
-        $this->preferences->cookie_expiration = 90;
-        $this->preferences->store();
+        $settings->cookie_expiration = 90;
+        $settings->store();
     }
 
     /**
