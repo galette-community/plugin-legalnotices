@@ -153,6 +153,16 @@ class PluginGaletteLegalnotices extends GalettePlugin
     }
 
     /**
+     * Get current logged-in user dashboards contents
+     *
+     * @return array<int, string|array<string,mixed>>
+     */
+    public static function getMyDashboardsContents(): array
+    {
+        return [];
+    }
+
+    /**
      * Get actions contents
      *
      * @param Adherent $member Member instance
