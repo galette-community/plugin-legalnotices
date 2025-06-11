@@ -169,9 +169,9 @@ class Pages
             if ($check_first === true) {
                 $select = $this->zdb->select(LEGALNOTICES_PREFIX . self::TABLE);
                 $select->columns(
-                    array(
+                    [
                         'counter' => new Expression('COUNT(' . self::PK . ')')
-                    )
+                    ]
                 );
 
                 $results = $this->zdb->execute($select);
@@ -448,8 +448,8 @@ class Pages
         try {
             $select = $this->zdb->select(LEGALNOTICES_PREFIX . self::TABLE);
             $select->columns(
-                array('name', 'label')
-            )->where(array('lang' => $lang));
+                ['name', 'label']
+            )->where(['lang' => $lang]);
 
             $names = [];
             $results = $this->zdb->execute($select);
@@ -488,14 +488,14 @@ class Pages
     {
         $insert = $this->zdb->insert(LEGALNOTICES_PREFIX . self::TABLE);
         $insert->values(
-            array(
+            [
                 'name'        => ':name',
                 'body'        => ':body',
                 'url'         => ':url',
                 'lang'        => ':lang',
                 'label'       => ':label',
                 'last_update' => ':last_update'
-            )
+            ]
         );
         $stmt = $this->zdb->sql->prepareStatementForSqlObject($insert);
 
