@@ -124,29 +124,29 @@ class Settings
                     Analog::INFO
                 );
                 $proceed = true;
-                $params[] = array(
+                $params[] = [
                     'name'  => $k,
                     'value'  => $v
-                );
+                ];
             }
         }
         if ($proceed !== false) {
             try {
                 $insert = $this->zdb->insert(LEGALNOTICES_PREFIX . self::TABLE);
                 $insert->values(
-                    array(
+                    [
                         'name'  => ':name',
                         'value'  => ':value'
-                    )
+                    ]
                 );
                 $stmt = $this->zdb->sql->prepareStatementForSqlObject($insert);
 
                 foreach ($params as $p) {
                     $stmt->execute(
-                        array(
+                        [
                             'name' => $p['name'],
                             'value' => $p['value']
-                        )
+                        ]
                     );
                 }
             } catch (Throwable $e) {
@@ -212,19 +212,19 @@ class Settings
             $values = self::$defaults;
             $insert = $this->zdb->insert(LEGALNOTICES_PREFIX . self::TABLE);
             $insert->values(
-                array(
+                [
                     'name'  => ':name',
                     'value'  => ':value'
-                )
+                ]
             );
             $stmt = $this->zdb->sql->prepareStatementForSqlObject($insert);
 
             foreach ($values as $k => $v) {
                 $stmt->execute(
-                    array(
+                    [
                         'name' => $k,
                         'value' => $v
-                    )
+                    ]
                 );
             }
 

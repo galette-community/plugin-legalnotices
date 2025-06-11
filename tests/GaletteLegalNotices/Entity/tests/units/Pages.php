@@ -137,7 +137,7 @@ class Pages extends GaletteTestCase
         $pages = new \GaletteLegalNotices\Entity\Pages(
             $this->preferences
         );
-        
+
         $pages->storePageContent('legal-information', 'en_US', $page_body, '');
         $pages->getPages('legal-information', 'en_US');
         $this->assertSame(
@@ -146,7 +146,7 @@ class Pages extends GaletteTestCase
             '<span class="obfuscate"><span class="u">contact</span> [at] <span class="d">galette<span class="p"> [dot] </span>eu</span></span>',
             $pages->getBody()
         );
-        
+
         $this->preferences->pref_org_phone_number = '+00 0 00 00 00 00';
         $pages = new \GaletteLegalNotices\Entity\Pages(
             $this->preferences

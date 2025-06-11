@@ -129,17 +129,17 @@ class Settings extends GaletteTestCase
 
         $delete = $this->zdb->delete(LEGALNOTICES_PREFIX . \GaletteLegalNotices\Entity\Settings::TABLE);
         $delete->where(
-            array(
+            [
                 \GaletteLegalNotices\Entity\Settings::PK => 'cookie_expiration'
-            )
+            ]
         );
         $this->zdb->execute($delete);
 
         $delete = $this->zdb->delete(LEGALNOTICES_PREFIX . \GaletteLegalNotices\Entity\Settings::TABLE);
         $delete->where(
-            array(
+            [
                 \GaletteLegalNotices\Entity\Settings::PK => 'cookie_domain'
-            )
+            ]
         );
         $this->zdb->execute($delete);
 
