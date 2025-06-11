@@ -26,15 +26,15 @@
         let footer_links = document.querySelector('.page-footer .horizontal.bulleted.link.list');
     {% if settings.publicpage_links != '1' or (settings.publicpage_links == '1' and preferences.pref_bool_publicpages != '1') %}
         {% if settings.enable_privacy_policy == 1 %}
-            let privacy_link = '<a class="item" href="{{ url_for('legalnotices_page', {'name': 'privacy-policy'}) }}"><i class="lock icon"></i>{{ _T("Privacy Policy", "legalnotices") }}</a>';
+            let privacy_link = '<a class="item" href="{{ url_for('legalnotices_page', {'name': 'privacy-policy'}) }}"><i class="lock icon" aria-hidden="true"></i>{{ _T("Privacy Policy", "legalnotices") }}</a>';
             footer_links.insertAdjacentHTML('afterbegin', privacy_link);
         {% endif %}
         {% if settings.enable_terms_of_service == 1 %}
-            let terms_link = '<a class="item" href="{{ url_for('legalnotices_page', {'name': 'terms-of-service'}) }}"><i class="handshake outline icon"></i>{{ _T("Terms of Service", "legalnotices") }}</a>';
+            let terms_link = '<a class="item" href="{{ url_for('legalnotices_page', {'name': 'terms-of-service'}) }}"><i class="handshake outline icon" aria-hidden="true"></i>{{ _T("Terms of Service", "legalnotices") }}</a>';
             footer_links.insertAdjacentHTML('afterbegin', terms_link);
         {% endif %}
         {% if settings.enable_legal_information == 1 %}
-            let information_link = '<a class="item" href="{{ url_for('legalnotices_page', {'name': 'legal-information'}) }}"><i class="balance scale left icon"></i>{{ _T("Legal Information", "legalnotices") }}</a>';
+            let information_link = '<a class="item" href="{{ url_for('legalnotices_page', {'name': 'legal-information'}) }}"><i class="balance scale left icon" aria-hidden="true"></i>{{ _T("Legal Information", "legalnotices") }}</a>';
             footer_links.insertAdjacentHTML('afterbegin', information_link);
         {% endif %}
     {% endif %}
@@ -141,7 +141,7 @@
                 }
             ]
         };
-        let cmp_link = '<a class="item" onclick="klaro.show();" href="#"><i class="shield alternate icon"></i>{{ _T("Consent Manager", "legalnotices") }}</a>';
+        let cmp_link = '<a class="item" onclick="klaro.show();" href="#"><i class="shield alternate icon" aria-hidden="true"></i>{{ _T("Consent Manager", "legalnotices") }}</a>';
         footer_links.insertAdjacentHTML('beforeend', cmp_link);
     {% endif %}
     </script>
