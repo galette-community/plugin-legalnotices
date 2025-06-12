@@ -21,10 +21,10 @@
 
 {% set settings = callstatic('\\GaletteLegalNotices\\PluginGaletteLegalnotices', 'getPluginSettings') %}
 
-{% if settings.enable_cmp == '1' or settings.publicpage_links != '1' or (settings.publicpage_links == '1' and preferences.pref_bool_publicpages != '1') %}
+{% if settings.enable_cmp == '1' or settings.publicpage_links != '1' or (settings.publicpage_links == '1' and preferences.pref_bool_publicpages != '1') or ext_auth is defined %}
     <script type="text/javascript">
         let footer_links = document.querySelector('.page-footer .horizontal.bulleted.link.list');
-    {% if settings.publicpage_links != '1' or (settings.publicpage_links == '1' and preferences.pref_bool_publicpages != '1') %}
+    {% if settings.publicpage_links != '1' or (settings.publicpage_links == '1' and preferences.pref_bool_publicpages != '1') or ext_auth is defined %}
         {% if settings.enable_privacy_policy == 1 %}
             let privacy_link = '<a class="item" href="{{ url_for('legalnotices_page', {'name': 'privacy-policy'}) }}"><i class="lock icon" aria-hidden="true"></i>{{ _T("Privacy Policy", "legalnotices") }}</a>';
             footer_links.insertAdjacentHTML('afterbegin', privacy_link);
