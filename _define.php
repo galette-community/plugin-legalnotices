@@ -25,10 +25,10 @@ $this->register(
     'Galette Legal Notices',
     'Manage legal notices in Galette',
     'Guillaume AGNIERAY',
-    '1.0.0-rc6',
+    '1.0.0-rc7',
     '1.2.0',
     'legalnotices',
-    '2025-05-01',
+    '2025-06-13',
     [
         'legalnotices_settings' => 'admin',
         'legalnotices_store_settings' => 'admin',
