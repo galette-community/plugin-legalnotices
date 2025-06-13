@@ -12,8 +12,8 @@ This plugin provides:
 
 First of all, download the plugin:
 
-[![Get latest Legal Notices plugin!](https://img.shields.io/badge/1.0.0-LegalNotices-ffb619?style=for-the-badge&logo=php&logoColor=white&label=1.0.0-rc6&color=ffb619
-)](https://github.com/gagnieray/plugin-legalnotices/releases/tag/1.0.0-rc6)
+[![Get latest Legal Notices plugin!](https://img.shields.io/badge/1.0.0-LegalNotices-ffb619?style=for-the-badge&logo=php&logoColor=white&label=1.0.0-rc7&color=ffb619
+)](https://github.com/galette-community/plugin-legalnotices/releases/tag/1.0.0-rc7)
 
 Extract the downloaded archive into Galette `plugins` directory. For example, on linux (replacing *{url}* and *{version}* with correct values):
 
@@ -48,7 +48,7 @@ Several settings allow to change the plugin's behavior:
 * **Fallback language for untranslated pages**
 * **Enable the consent manager**
 * **Hide the "Accept all" button** : do not enable this option if you need to comply with the european legislation (GDPR & ePrivacy).
-* **Hide the "I decline" button** :do not enable this option if you need to comply with the european legislation (GDPR & ePrivacy).
+* **Hide the "I decline" button** : do not enable this option if you need to comply with the european legislation (GDPR & ePrivacy).
 * **Cookie lifetime** : specify the maximum lifetime of the cookie used to store consent information in the browser (in days). After this period, the user's consent will be requested again.
 * **Cookie domain** : use this if you want to get consent once for multiple matching domains. This supposes you are using Klaro! too on the other domains. By default, the current domain is used.
 * **Enable "localStorage"** : by default, consent information is stored in the browser with a cookie. Enable this option if you want to use "locaStorage" instead. If enabled, setting the options above related to the cookie becomes irrelevant.
