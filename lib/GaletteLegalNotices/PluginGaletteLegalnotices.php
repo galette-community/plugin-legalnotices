@@ -53,20 +53,20 @@ class PluginGaletteLegalnotices extends GalettePlugin
         $menus = [];
         $items = [];
 
-        if ($login->isAdmin()) {
-            $items[] = [
-                'label' => _T("Settings"),
-                'route' => [
-                    'name' => 'legalnotices_settings'
-                ]
-            ];
-        }
-
         if ($login->isAdmin() || $login->isStaff()) {
             $items[] = [
                 'label' => _T("Pages content", "legalnotices"),
                 'route' => [
                     'name' => 'legalnotices_pages'
+                ]
+            ];
+        }
+
+        if ($login->isAdmin()) {
+            $items[] = [
+                'label' => _T("Settings"),
+                'route' => [
+                    'name' => 'legalnotices_settings'
                 ]
             ];
         }
