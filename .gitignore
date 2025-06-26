@@ -1,0 +1,7 @@
+*.swp
+*.exvim*
+dist/
+tempcache/
+node_modules/
+templates/
+webroot/
