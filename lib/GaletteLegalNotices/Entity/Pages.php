@@ -324,8 +324,8 @@ class Pages
 
         if ($is_lang_ok !== true) {
             Analog::log(
-                'Language ' . $lang .
-                ' does not exists. Falling back to default Galette lang.',
+                'Language ' . $lang
+                . ' does not exists. Falling back to default Galette lang.',
                 Analog::ERROR
             );
             $lang = $i18n->getID();
@@ -368,15 +368,15 @@ class Pages
                         return $this->getPages($name, $lang);
                     } catch (Throwable $e) {
                         Analog::log(
-                            'Unable to add missing requested page "' . $name .
-                            ' (' . $lang . ') | ' . $e->getMessage(),
+                            'Unable to add missing requested page "' . $name
+                            . ' (' . $lang . ') | ' . $e->getMessage(),
                             Analog::WARNING
                         );
                     }
                 } else {
                     Analog::log(
-                        'Unable to find missing requested page "' . $name .
-                        ' (' . $lang . ')',
+                        'Unable to find missing requested page "' . $name
+                        . ' (' . $lang . ')',
                         Analog::WARNING
                     );
                 }
@@ -385,8 +385,8 @@ class Pages
             return $this->current_page;
         } catch (Throwable $e) {
             Analog::log(
-                'Cannot get page `' . $name . '` for lang `' . $lang . '` | ' .
-                $e->getMessage(),
+                'Cannot get page `' . $name . '` for lang `' . $lang . '` | '
+                . $e->getMessage(),
                 Analog::WARNING
             );
             throw $e;
@@ -428,8 +428,8 @@ class Pages
             return true;
         } catch (Throwable $e) {
             Analog::log(
-                'An error has occurred while storing page content. | ' .
-                $e->getMessage(),
+                'An error has occurred while storing page content. | '
+                . $e->getMessage(),
                 Analog::ERROR
             );
             throw $e;
@@ -459,8 +459,8 @@ class Pages
             return $names;
         } catch (Throwable $e) {
             Analog::log(
-                'Cannot get pages names for lang `' . $lang . '` | ' .
-                $e->getMessage(),
+                'Cannot get pages names for lang `' . $lang . '` | '
+                . $e->getMessage(),
                 Analog::WARNING
             );
             throw $e;
