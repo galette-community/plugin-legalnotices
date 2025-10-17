@@ -6,10 +6,9 @@ from datetime import datetime
 from termcolor import colored
 from urllib.parse import urlparse
 
-# on Tuxfamily
-ssh_path = 'galette/galette-repository/plugins/'
-ssh_host = 'ssh.tuxfamily.org'
-galette_dl_repo = 'http://download.tuxfamily.org/galette/plugins/'
+ssh_path = '/var/www/galette.eu/download/plugins/'
+ssh_host = 'galette.eu'
+galette_dl_repo = 'https://galette.eu/download/plugins/'
 is_local = False
 
 local_dl_repo = os.path.join(
@@ -383,6 +382,7 @@ def add_libs(rel_name, galette_archive):
     shutil.rmtree(os.path.join(npm_dir, 'bin'))
     shutil.rmtree(os.path.join(npm_dir, 'tests'))
     os.remove(os.path.join(npm_dir, '.composer-require-checker.config.json'))
+    os.remove(os.path.join(npm_dir, '.docheader'))
     os.remove(os.path.join(npm_dir, '.gitignore'))
     os.remove(os.path.join(npm_dir, '.phpcs.xml'))
     os.remove(os.path.join(npm_dir, '.php-cs-fixer.dist.php'))
