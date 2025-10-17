@@ -1,6 +1,6 @@
 {
   "name": "plugin-legalnotices",
-  "version": "1.0.0-rc7",
+  "version": "1.0.0",
   "description": "Galette plugin to manage legal notices",
   "author": "Guillaume AGNIERAY",
   "license": "GPL-3.0-or-later",
@@ -13,7 +13,7 @@
     "klaro": "^0.7.21"
   },
   "devDependencies": {
-    "del": "^8.0.0",
+    "del": "^8.0.1",
     "gulp": "^5.0.1"
   }
 }
