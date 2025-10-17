@@ -141,9 +141,9 @@ class Pages extends GaletteTestCase
         $pages->storePageContent('legal-information', 'en_US', $page_body, '');
         $pages->getPages('legal-information', 'en_US');
         $this->assertSame(
-            'Galette | ' .
-            ' | ' .
-            '<span class="obfuscate"><span class="u">contact</span> [at] <span class="d">galette<span class="p"> [dot] </span>eu</span></span>',
+            'Galette | '
+            . ' | '
+            . '<span class="obfuscate"><span class="u">contact</span> [at] <span class="d">galette<span class="p"> [dot] </span>eu</span></span>',
             $pages->getBody()
         );
 
@@ -153,9 +153,9 @@ class Pages extends GaletteTestCase
         );
         $pages->getPages('legal-information', 'en_US');
         $this->assertSame(
-            'Galette | ' .
-            '<a href="tel:+00000000000">+00 0 00 00 00 00</a> | ' .
-            '<span class="obfuscate"><span class="u">contact</span> [at] <span class="d">galette<span class="p"> [dot] </span>eu</span></span>',
+            'Galette | '
+            . '<a href="tel:+00000000000">+00 0 00 00 00 00</a> | '
+            . '<span class="obfuscate"><span class="u">contact</span> [at] <span class="d">galette<span class="p"> [dot] </span>eu</span></span>',
             $pages->getBody()
         );
 
